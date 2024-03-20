@@ -1,36 +1,47 @@
-import Button from "./components/Button/Button";
 import Container from "./components/Container/Container";
-import { Route, Routes, Link } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import BlogPage from "./components/BlogPage/BlogPage";
 import InfoPage from "./components/InfoPage/InfoPage";
+import Header from "./components/layout/Header/Header";
+import Footer from "./components/layout/Footer/Footer";
+import BasicMenu from "./components/layout/Menu/BasicMenu";
+import Content from "./components/layout/Content/Content";
+import { info } from "../data";
+import Date from "./components/DateTime/DateTime";
+import Counter from "./components/Counter/Counter";
 
-const LinkStyle = {
-    margin: "0px 24px",
-    fontSize: "24px",
-};
 function App() {
     return (
         <>
             <Container>
-                <header style={{ textAlign: "center" }}>
-                    <Link to="/" style={LinkStyle}>
-                        Home
-                    </Link>
-                    <Link to="/blog" style={LinkStyle}>
-                        Blog
-                    </Link>
-                    <Link to="/info" style={LinkStyle}>
-                        Info
-                    </Link>
-                </header>
-                <main style={{ display: "flex", justifyContent: "center", alignItems: "center", height: "80vh" }}>
-                    <Routes>
-                        <Route path="/" element={<HomePage />}></Route>
-                        <Route path="/blog" element={<BlogPage />}></Route>
-                        <Route path="/info" element={<InfoPage />}></Route>
+                <main
+                    style={{
+                        position: "relative",
+                        marginTop: "84px",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                    }}>
+                    <Routes style={{}}>
+                        <Route path="/" element={<Header />}>
+                            <Route index element={<HomePage />}></Route>
+                            <Route path="/blog" element={<BlogPage />}></Route>
+                            <Route path="/info" element={<Counter />}></Route>
+                            <Route
+                                path="/lab1"
+                                element={<Content title={info[0].title} description={info[0].description} />}></Route>
+                            <Route
+                                path="/lab2"
+                                element={<Content title={info[1].title} description={info[1].description} />}></Route>
+                            <Route
+                                path="/lab3"
+                                element={<Content title={info[2].title} description={info[2].description} />}></Route>
+                        </Route>
                     </Routes>
                 </main>
+
+                <Footer></Footer>
             </Container>
         </>
     );

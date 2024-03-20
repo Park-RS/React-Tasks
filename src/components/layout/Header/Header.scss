@@ -1,0 +1,21 @@
+.header {
+    width: 100%;
+    height: 64px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.header__title {
+}
+.header__menu {
+    display: flex;
+}
+.header__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
